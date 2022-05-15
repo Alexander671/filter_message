@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'environ',
     'rest_framework',
-    'kafka'
+    'kafka',
+    'messages_service'
 
 ]
 
