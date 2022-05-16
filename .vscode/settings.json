@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./filter_message/messages_service"
+    ]
+}

@@ -7,9 +7,8 @@ __pycache__/
 *.so
 
 # kafka
-kafka_binary
-kafka-3.2.0-src.tgz
 
+kafka_2.13-3.1.1
 # Distribution / packaging
 .Python
 build/
