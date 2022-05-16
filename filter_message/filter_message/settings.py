@@ -40,9 +40,17 @@ INSTALLED_APPS = [
     'environ',
     'rest_framework',
     'kafka',
-    'messages_service'
+    'messages_service',
+    'rest_framework_simplejwt',
 
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
