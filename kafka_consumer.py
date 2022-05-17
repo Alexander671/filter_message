@@ -12,7 +12,7 @@ LOGIN = env('LOGIN')
 PASSWORD = env('PASSWORD')
 
 
-def test():
+def listener():
 
     # jwt auth
     # не доделано, должен обновляться,
@@ -42,6 +42,6 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    listener()
 
 
