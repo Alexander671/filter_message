@@ -8,7 +8,7 @@ ORDER_STATUS = ((0, 'Review'), (1, 'Blocked'), (2, 'Correct'))
 class Messages(models.Model): # Таблица новостей которая наследует models.Model
     message_text = models.TextField(blank=False) # текст сообщения
     date_of_create = models.DateField(auto_now_add=True) # дата создания
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_is', on_delete=models.SET_NULL, blank = True, null = True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_is', on_delete=models.CASCADE)
     status = models.SmallIntegerField(choices=ORDER_STATUS, default=0) # статус проверки сообщения
     user_to = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_to', on_delete=models.SET_NULL, blank = True, null = True)
     class Meta:

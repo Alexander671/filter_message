@@ -11,3 +11,4 @@ class MessagesConfirmationSrializer(serializers.ModelSerializer):
         class Meta:
                 model = Messages
                 fields = ('message_text','user_to', 'status')
+

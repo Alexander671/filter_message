@@ -1,19 +1,16 @@
-from django.shortcuts import render
-from messages_service.models import Messages
 
+from messages_service.models import Messages
 from messages_service.serializers import MessagesConfirmationSrializer, MessagesSrializer
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
-from json import dumps
-from time import sleep
-
-from pickle import dumps,HIGHEST_PROTOCOL
-
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication
 # Create your views here.
 class MessageList(APIView):
+    serializer_class = MessagesSrializer
+    authentication_classes = [SessionAuthentication]
     def get(self, request, format=None):
         messages = Messages.objects.all()
         serializer = MessagesSrializer(messages, many=True)
@@ -22,11 +19,11 @@ class MessageList(APIView):
     def post(self, request, format=None): # добавляем метод пост,
                                           # чтобы кинуть данные в
                                           # kafka 
-                                          
+                                         
         serializer = MessagesSrializer(data=request.data)
         
         if serializer.is_valid():
-            obj = serializer.save()
+            obj = serializer.save(user=self.request.user)
             
             # импорт kafka для подключения
             from kafka import KafkaProducer
@@ -41,8 +38,16 @@ class MessageList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+'''
+{
+    "message_text": 63,
+    "status": 2
+}
+'''
+
 class MessageConfirmationList(APIView):
-    
+    permission_classes = (IsAuthenticated,)
     def post(self, request, format=None): # здесь получаем status и изменяем его
         
         # получили данные из запроса
