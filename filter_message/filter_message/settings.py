@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'environ',
     'rest_framework',
-    'kafka',
     'messages_service',
     'rest_framework_simplejwt',
     'accounts'
