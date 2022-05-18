@@ -1,0 +1,8 @@
+# example
+SECRET_KEY="^flw6f+t)jcw2_u52f)f^un(ljc6qeq&0)szmv(22$iyw=s@ye"
+DEBUG=True
+ALLOWED_HOSTS=
+
+HOST_SERVER=http://127.0.0.1:8000/
+LOGIN=alex
+PASSWORD=123
