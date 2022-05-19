@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "556c4f51-a6c6-4d85-8fe8-21bc98a2886c",
+		"name": "test_filter_message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST MESSAGE",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Dealer 2\",\n    \"official\" : true,\n    \"address\" : \"Lenina 3\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/dealer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"dealer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "lupa",
+							"disabled": true
+						},
+						{
+							"key": "official",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "c",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET MESSAGE",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Dealer 2\",\n    \"official\" : true,\n    \"address\" : \"Lenina 3\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/dealer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"dealer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "lupa",
+							"disabled": true
+						},
+						{
+							"key": "official",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "c",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST MESSAGE_CONFIRMATION",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Dealer 2\",\n    \"official\" : true,\n    \"address\" : \"Lenina 3\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/dealer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"dealer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "lupa",
+							"disabled": true
+						},
+						{
+							"key": "official",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "c",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST JWT AUTH",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\" : \"alexander\",\n\"password\" : 1\n\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/?username=alexander&password=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "alexander"
+						},
+						{
+							"key": "password",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
