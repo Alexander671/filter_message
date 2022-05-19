@@ -7,17 +7,10 @@
 </p>
 
 
-A REST API python backend service "filter_message". 
+A REST API python backend service "filter_message". </br>
 Created two services:
 1. **API** messaging service.
 2. **Listener** for checking messages.
-
-Description: </p>
-The **client sends** a message to the API service.
-The **service saves the message in the database** (print the table(s) yourself) with the status "**for receiving**". In the database, a message can be in three states: **receiving, blocking, fixing** (0, 1, 2).
-The service **pushes a message to kafka**, which the **listener reads**.
-The **listener noticed** that the** word "АБРАКАДАБРА"** (in any case) **does not occur** in the text of the messages.
-After the listener validates the message, **it sends the validation status (true/false) to the API service**.
 
 Tested on Ubuntu 20.04 and
 ```Python==3.8.10       
