@@ -5,14 +5,24 @@ from messages_service.serializers import MessagesConfirmationSrializer, Messages
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAdminUser, BasePermission, IsAuthenticated
+from django.db.models import Q
 # Create your views here.
+
+class IsOwner(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return obj.user == request.user or obj.user_to == request.user
+
 class MessageList(APIView):
     serializer_class = MessagesSrializer
-    authentication_classes = [SessionAuthentication]
+    authentication_classes = [JWTAuthentication, SessionAuthentication]
+    permission_classes = [IsOwner,  IsAuthenticated]
+
     def get(self, request, format=None):
-        messages = Messages.objects.all()
+        # получать все сообщения мне или от меня
+        messages = Messages.objects.all().filter((Q(user=request.user) | Q(user_to=request.user)))
         serializer = MessagesSrializer(messages, many=True)
         return Response(serializer.data)
     
@@ -47,7 +57,7 @@ class MessageList(APIView):
 '''
 
 class MessageConfirmationList(APIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
     def post(self, request, format=None): # здесь получаем status и изменяем его
         
         # получили данные из запроса
